@@ -1,3 +1,18 @@
-<h1>{{ peliculasData[0].title }}</h1>
-<h1>{{ peliculasData[1].title }}</h1>
-<h1>{{ peliculasData[2].title }}</h1>
+<div class="principal">
+    <h2>Peliculas recientes</h2>
+    <div class="peliculas">
+        <div class="caratulas" *ngFor="let pelicula of peliculasData">
+            <button mat-button class="boton" [routerLink]="['/pelicula', pelicula.id, pelicula.title]">
+                <img class="imagen" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ pelicula.poster_path}}">
+            </button>
+            <p>{{ pelicula.title }}</p>
+        </div>
+    </div>
+    <h2>Series recientes</h2>
+    <div class="peliculas">
+        <div class="caratulas" *ngFor="let serie of seriesData">
+            <img class="imagen" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}">
+            <p>{{ serie.name }}</p>
+        </div>
+    </div>
+</div>

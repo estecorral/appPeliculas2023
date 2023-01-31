@@ -1,0 +1,25 @@
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.peliculas {
+    display: flex;
+    flex-direction: row;
+}
+.caratulas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagen {
+    margin: 5px;
+    border-radius: 10px;
+}
+.boton {
+    width: 220px;
+    height: 330px;
+    margin: 5px;
+}

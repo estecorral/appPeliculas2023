@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import peliculas from '../../../assets/movies.json';
+import series from '../../../assets/series.json';
 
 @Component({
   selector: 'app-principal',
@@ -7,7 +8,8 @@ import peliculas from '../../../assets/movies.json';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent {
-  public peliculasData: any = peliculas;
+  public peliculasData: any = peliculas.slice(0, 5);
+  public seriesData: any = series.slice(0 ,5);
   
   constructor() {
 
@@ -15,5 +17,6 @@ export class PrincipalComponent {
 
   ngOnInit() {
     console.log(this.peliculasData);
+    console.log(this.seriesData);
   }
 }
