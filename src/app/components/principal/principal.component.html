@@ -1,6 +1,7 @@
 <div class="principal">
     <h2>Peliculas recientes</h2>
-    <div class="peliculas">
+    <mat-progress-bar mode="indeterminate" *ngIf="peliculasData.length === 0"></mat-progress-bar>
+    <div class="peliculas" *ngIf="peliculasData.length > 0">
         <div class="caratulas" *ngFor="let pelicula of peliculasData">
             <button mat-button class="boton" [routerLink]="['/pelicula', pelicula.id, pelicula.title]">
                 <img class="imagen" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ pelicula.poster_path}}">
@@ -11,7 +12,9 @@
     <h2>Series recientes</h2>
     <div class="peliculas">
         <div class="caratulas" *ngFor="let serie of seriesData">
-            <img class="imagen" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}">
+            <button mat-button class="boton" (click)="goToSerie(serie.id, serie.name)">
+                <img class="imagen" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}">
+            </button>
             <p>{{ serie.name }}</p>
         </div>
     </div>

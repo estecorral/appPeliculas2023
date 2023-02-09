@@ -1,0 +1,29 @@
+.peliculasList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.listado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+mat-card-content {
+    width: 220px;
+    height: 120px;
+}
+
+mat-card-header {
+    width: 220px;
+}
+
+.card {
+    margin: 5px;
+}

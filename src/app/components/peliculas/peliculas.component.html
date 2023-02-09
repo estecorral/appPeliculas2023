@@ -1,1 +1,25 @@
-<p>peliculas works!</p>
+<div class="peliculasList">
+    <div>
+        <h2>Peliculas Recientes</h2>
+    </div>
+    <mat-progress-bar mode="indeterminate" *ngIf="peliculasList.length === 0"></mat-progress-bar>
+    <div class="listado" *ngIf="peliculasList.length > 0">
+        <div *ngFor="let pelicula of peliculasList">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title>{{ pelicula.title | slice:0:20 }}...</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ pelicula.poster_path}}" alt="Poster Pelicula">
+                <mat-card-content>
+                    <p>
+                    {{ pelicula.overview | slice:0:150 }}...
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button [routerLink]="['/pelicula', pelicula.id, pelicula.title]">+Info</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <button mat-raised-button (click)="getMasPelis()">Cargar más peliculas</button>
+</div>

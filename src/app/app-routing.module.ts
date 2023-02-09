@@ -4,6 +4,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { SerieComponent } from './components/serie/serie.component';
 import { SeriesComponent } from './components/series/series.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'peliculas', component: PeliculasComponent},
   {path: 'series', component: SeriesComponent},
   {path: 'pelicula/:id/:titulo', component: PeliculaComponent, data: {info: 'HOLA MUNDO'}},
+  {path: 'serie', component: SerieComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', pathMatch: 'full', redirectTo:'error'}
 ];
