@@ -10,6 +10,7 @@ import { PeliculasServiceService } from 'src/app/services/peliculas-service.serv
 export class PeliculasComponent {
   public peliculasList: any = [];
   public page = 1;
+  public totalPages = 0;
   constructor(public peliculasService: PeliculasServiceService) {
     
   }
@@ -27,6 +28,7 @@ export class PeliculasComponent {
     this.page = this.page + 1;
     this.peliculasService.getNowPlaying(this.page).subscribe((data: any) => {
       this.peliculasList = this.peliculasList.concat(data.results);
+      this.totalPages = data.total_pages;
     });
   }
 }

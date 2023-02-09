@@ -21,5 +21,6 @@
             </mat-card>
         </div>
     </div>
-    <button mat-raised-button (click)="getMasPelis()">Cargar más peliculas</button>
+    <button mat-raised-button *ngIf="page !== totalPages" (click)="getMasPelis()">Cargar más peliculas</button>
+    <mat-spinner *ngIf="peliculasList.length < page*20"></mat-spinner>
 </div>

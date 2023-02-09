@@ -25,6 +25,7 @@ export class PeliculasServiceService {
       const url = `${this.apiURL}now_playing?${environment.apiKey}${this.language}&page=${page}`;
       return this.httpClient.get(url).pipe(
         map((data: any) => {
+          console.log(data);
           return data;
         })
       );
@@ -36,6 +37,16 @@ export class PeliculasServiceService {
         })
       );
     }
+  }
+
+  getPeliculaData(id: string | null) {
+    const url = `${this.apiURL}${id}?${environment.apiKey}${this.language}`;
+    return this.httpClient.get(url);
+  }
+
+  getCredits(id: string | null) {
+    const url = `${this.apiURL}${id}/credits?${environment.apiKey}${this.language}`;
+    return this.httpClient.get(url);
   }
 
   get5Peliculas() {

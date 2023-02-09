@@ -1,0 +1,50 @@
+.principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.peliculaData {
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.imagen {
+    margin-right: 40px;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+
+.caratula {
+    margin: 25px;
+    z-index: 2;
+}
+
+.info {
+    margin: 25px;
+    margin-right: 50px;
+    z-index: 2;
+}
+
+.transparencia {
+    opacity: 0.6;
+    background-color: white;
+    z-index: 1;
+}
+
+.actores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.imgActor {
+    width: 138px;
+    height: 175px;
+}
+
+mat-card {
+    margin: 2px;
+    width: 138px;
+}
