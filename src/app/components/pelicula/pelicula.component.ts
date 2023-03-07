@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PeliculasServiceService } from 'src/app/services/peliculas-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-pelicula',
@@ -14,7 +15,9 @@ export class PeliculaComponent {
   public peliculaData: any;
   public backdropPath: string = '';
   public actores: any;
-  constructor(public route: ActivatedRoute, private peliculasService: PeliculasServiceService) {
+  public puntuacion: number = 0;
+  constructor(public route: ActivatedRoute, private peliculasService: PeliculasServiceService,
+    private snackBar: MatSnackBar) {
     
   }
   ngOnInit() {
@@ -28,10 +31,19 @@ export class PeliculaComponent {
       this.backdropPath =
         'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces' +
         this.peliculaData.backdrop_path;
+        this.puntuacion = this.peliculaData.vote_average;
         this.peliculasService.getCredits(this.id).subscribe((data: any) => {
           console.log(data.cast);
           this.actores = data.cast;
         });
+    });
+  }
+
+  userPuntuacion(event: any) {
+    // console.log(event);
+    this.puntuacion = event;
+    this.snackBar.open('Has puntuado la pelicula con: ' + event, 'Cerrar', {
+      duration: 6000,
     });
   }
 }

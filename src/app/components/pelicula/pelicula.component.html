@@ -13,21 +13,23 @@
                     <mat-chip color="accent">{{ peliculaData.vote_average }}</mat-chip>
                 </mat-chip-listbox>
             </p>
-            <mat-chip-listbox>
-                <mat-chip color="accent" *ngFor="let genero of peliculaData.genres">{{ genero.name }}</mat-chip>
-            </mat-chip-listbox>
+            <app-puntuacion [puntuacion]="puntuacion" (newPuntuacion)="userPuntuacion($event)"></app-puntuacion>
             <p>
                 {{ peliculaData.overview }}
             </p>
+            <mat-chip-listbox>
+                <mat-chip color="accent" *ngFor="let genero of peliculaData.genres">{{ genero.name }}</mat-chip>
+            </mat-chip-listbox>
         </div>
     </div>
     <div class="actores">
         <mat-card *ngFor="let actor of actores">
-            <mat-card-header>
-                <mat-card-title>{{ actor.character }}</mat-card-title>
+            <img class="imgActor" *ngIf="!actor.profile_path" mat-card-image src="../../../assets/personajeSin.png"/>
+            <img class="imgActor" *ngIf="actor.profile_path" mat-card-image src="https://www.themoviedb.org/t/p/w138_and_h175_face/{{actor.profile_path}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <mat-card-title>{{ actor.character | slice: 0:20}}</mat-card-title>
                 <mat-card-subtitle>{{ actor.original_name}}</mat-card-subtitle>
-            </mat-card-header>
-            <img class="imgActor" mat-card-image src="https://www.themoviedb.org/t/p/w138_and_h175_face/{{actor.profile_path}}" alt="Photo of a Shiba Inu">
+            </mat-card-content>
         </mat-card>
     </div>
 </div>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,9 +15,13 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { SeriesComponent } from './components/series/series.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { SerieComponent } from './components/serie/serie.component';
+import { FormularioTemplateComponent } from './components/formulario-template/formulario-template.component';
+import { PuntuacionComponent } from './components/puntuacion/puntuacion.component';
 
 import { PeliculasServiceService } from './services/peliculas-service.service';
 import { SeriesServiceService } from './services/series-service.service';
+
+
 
 @NgModule({
   declarations: [
@@ -27,14 +32,17 @@ import { SeriesServiceService } from './services/series-service.service';
     PeliculasComponent,
     SeriesComponent,
     PeliculaComponent,
-    SerieComponent
+    SerieComponent,
+    PuntuacionComponent,
+    FormularioTemplateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     PeliculasServiceService,
