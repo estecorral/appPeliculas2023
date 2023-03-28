@@ -1,0 +1,56 @@
+<div class="body">
+    <h1>Formulario reactivo</h1>
+    <form [formGroup]="formularioRegistro" (ngSubmit)="sendForm()">
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input 
+            type="text"
+            placeholder="nombre"
+            formControlName="nombre"
+            matInput>
+            <mat-error>Campo nombre obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input 
+            type="text"
+            placeholder="apellidos"
+            formControlName="apellidos"
+            matInput>
+            <mat-error>Campo apellido obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input 
+            type="text"
+            placeholder="email"
+            formControlName="email"
+            matInput>
+            <mat-error>Campo email obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input 
+            type="password"
+            formControlName="password"
+            matInput>
+            <mat-error>Campo password obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password2</mat-label>
+            <input 
+            type="password"
+            [class.is-invalid]="passwordInvalido"
+            formControlName="password2"
+            matInput>
+            <mat-error *ngIf="passwordInvalido">Campo password obligatorio</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit">Registrar</button>
+    </form>
+</div>

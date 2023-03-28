@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,6 +20,8 @@ import { PuntuacionComponent } from './components/puntuacion/puntuacion.componen
 
 import { PeliculasServiceService } from './services/peliculas-service.service';
 import { SeriesServiceService } from './services/series-service.service';
+import { ConfirmarRegistroComponent } from './components/confirmar-registro/confirmar-registro.component';
+import { FormularioReactivoComponent } from './components/formulario-reactivo/formulario-reactivo.component';
 
 
 
@@ -34,7 +36,9 @@ import { SeriesServiceService } from './services/series-service.service';
     PeliculaComponent,
     SerieComponent,
     PuntuacionComponent,
-    FormularioTemplateComponent
+    FormularioTemplateComponent,
+    ConfirmarRegistroComponent,
+    FormularioReactivoComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { SeriesServiceService } from './services/series-service.service';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     PeliculasServiceService,
