@@ -48,9 +48,71 @@
             [class.is-invalid]="passwordInvalido"
             formControlName="password2"
             matInput>
-            <mat-error *ngIf="passwordInvalido">Campo password obligatorio</mat-error>
+            <mat-error>Campo password obligatorio</mat-error>
+        </mat-form-field>
+        <small class="smallText" *ngIf="passwordInvalido">Las contraseñas no coinciden</small>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput 
+            type="text"
+            formControlName="telefono">
+            <mat-error>El teléfono indicado es incorrecto</mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="outline">
+            <mat-label>País</mat-label>
+            <mat-select formControlName="pais">
+                <mat-option *ngFor="let pais of paises" [value]="pais.pais">{{ pais.pais }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Ciudad</mat-label>
+            <mat-select formControlName="ciudad">
+                <mat-option *ngFor="let ciudad of paises" [value]="ciudad.capital">{{ ciudad.capital }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="direccion" formGroupName="direccion">
+            <mat-label>Dirección:</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-label>Calle</mat-label>
+                <input matInput
+                type="text"
+                formControlName="calle">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Número</mat-label>
+                <input matInput
+                type="text"
+                formControlName="numero">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput
+                [matDatepicker]="picker"
+                formControlName="nacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Fecha es obligatoria</mat-error>
+        </mat-form-field>
+        
+        <mat-radio-group formControlName="genero">
+            <mat-label>Género</mat-label>
+            <mat-radio-button value="M">Masculino</mat-radio-button>
+            <mat-radio-button value="F">Femenino</mat-radio-button>
+            <mat-radio-button value="O">Otros</mat-radio-button>
+            <small *ngIf="">El género es obligatorio</small>
+        </mat-radio-group>
+
         <button mat-raised-button type="submit">Registrar</button>
+       <!--<button mat-raised-button type="submit" *ngIf="formularioRegistro.status === 'INVALID'" disabled>Registrar</button>--> 
     </form>
+    <button mat-raised-button (click)="limpiarDatos()">Limpiar</button>
 </div>

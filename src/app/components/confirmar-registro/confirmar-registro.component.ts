@@ -22,6 +22,6 @@ export class ConfirmarRegistroComponent {
   }
 
   editData() {
-    this.router.navigate(['template'], {state: {'data': this.data.registro}});
+    this.router.navigate(['reactivo'], {state: {'data': this.data.registro}});
   }
 }
